@@ -34,7 +34,7 @@ function User() {
                       className="avatar border-gray"
                       src={require("assets/img/mike.jpg")}
                     />
-                    <h5 className="title">Chet Faker</h5>
+                    <h5 className="title">Athiraj nakku</h5>
                   </a>
                   <p className="description">@chetfaker</p>
                 </div>
