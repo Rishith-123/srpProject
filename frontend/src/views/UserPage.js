@@ -1,20 +1,3 @@
-/*!
-
-=========================================================
-* Now UI Dashboard React - v1.5.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/now-ui-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/now-ui-dashboard-react/blob/main/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 
 // reactstrap components
@@ -49,11 +32,10 @@ function User() {
                   <Row>
                     <Col className="pr-1" md="5">
                       <FormGroup>
-                        <label>Company (disabled)</label>
+                        <label>Roll Number</label>
                         <Input
-                          defaultValue="Creative Code Inc."
                           disabled
-                          placeholder="Company"
+                          placeholder="Roll No."
                           type="text"
                         />
                       </FormGroup>
@@ -62,7 +44,6 @@ function User() {
                       <FormGroup>
                         <label>Username</label>
                         <Input
-                          defaultValue="michael23"
                           placeholder="Username"
                           type="text"
                         />
@@ -82,8 +63,8 @@ function User() {
                       <FormGroup>
                         <label>First Name</label>
                         <Input
-                          defaultValue="Mike"
-                          placeholder="Company"
+                
+                          placeholder="First Name"
                           type="text"
                         />
                       </FormGroup>
@@ -92,7 +73,7 @@ function User() {
                       <FormGroup>
                         <label>Last Name</label>
                         <Input
-                          defaultValue="Andrew"
+                          
                           placeholder="Last Name"
                           type="text"
                         />
@@ -104,8 +85,8 @@ function User() {
                       <FormGroup>
                         <label>Address</label>
                         <Input
-                          defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
-                          placeholder="Home Address"
+                          
+                          placeholder="Address"
                           type="text"
                         />
                       </FormGroup>
@@ -116,7 +97,7 @@ function User() {
                       <FormGroup>
                         <label>City</label>
                         <Input
-                          defaultValue="Mike"
+                          
                           placeholder="City"
                           type="text"
                         />
@@ -126,7 +107,7 @@ function User() {
                       <FormGroup>
                         <label>Country</label>
                         <Input
-                          defaultValue="Andrew"
+                          
                           placeholder="Country"
                           type="text"
                         />
@@ -146,7 +127,7 @@ function User() {
                         <Input
                           cols="80"
                          
-                          placeholder="Here can be your description"
+                          placeholder="Small Discription"
                           rows="4"
                           type="textarea"
                         />
@@ -170,9 +151,9 @@ function User() {
                       className="avatar border-gray"
                       src={require("assets/img/mike.jpg").default}
                     />
-                    <h5 className="title">Mike Andrew</h5>
+                    <h5 className="title">Rishith</h5>
                   </a>
-                  <p className="description">michael24</p>
+                  <p className="description">Enthusiastic Student</p>
                 </div>
                 <p className="description text-center"> </p>
               </CardBody>
