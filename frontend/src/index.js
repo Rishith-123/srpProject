@@ -15,6 +15,7 @@ import Login from "./components/Login";
 import UserPermit from "./components/otpverify";
 import OtpSuccess from "./components/otpSuccess";
 import EmailVerify from "./components/EmailVerify";
+import UploadForm from "components/UploadForm";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

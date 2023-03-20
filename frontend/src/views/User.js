@@ -24,16 +24,16 @@ function User() {
           <Col md="4">
             <Card className="card-user">
               <div className="image">
-                <img alt="..." src={require("assets/img/damir-bosnjak.jpg")} />
+                {/* <img alt="..." src={require("assets/img/damir-bosnjak.jpg")} /> */}
               </div>
               <CardBody>
                 <div className="author">
                   <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                    <img
+                    {/* <img
                       alt="..."
                       className="avatar border-gray"
                       src={require("assets/img/mike.jpg")}
-                    />
+                    /> */}
                     <h5 className="title">Athiraj nakku</h5>
                   </a>
                   <p className="description">@chetfaker</p>
@@ -79,11 +79,11 @@ function User() {
                     <Row>
                       <Col md="2" xs="2">
                         <div className="avatar">
-                          <img
+                          {/* <img
                             alt="..."
                             className="img-circle img-no-padding img-responsive"
                             src={require("assets/img/faces/ayo-ogunseinde-2.jpg")}
-                          />
+                          /> */}
                         </div>
                       </Col>
                       <Col md="7" xs="7">
@@ -108,11 +108,11 @@ function User() {
                     <Row>
                       <Col md="2" xs="2">
                         <div className="avatar">
-                          <img
+                          {/* <img
                             alt="..."
                             className="img-circle img-no-padding img-responsive"
                             src={require("assets/img/faces/joe-gardner-2.jpg")}
-                          />
+                          /> */}
                         </div>
                       </Col>
                       <Col md="7" xs="7">
@@ -137,11 +137,11 @@ function User() {
                     <Row>
                       <Col md="2" xs="2">
                         <div className="avatar">
-                          <img
+                          {/* <img
                             alt="..."
                             className="img-circle img-no-padding img-responsive"
                             src={require("assets/img/faces/clem-onojeghuo-2.jpg")}
-                          />
+                          /> */}
                         </div>
                       </Col>
                       <Col className="col-ms-7" xs="7">

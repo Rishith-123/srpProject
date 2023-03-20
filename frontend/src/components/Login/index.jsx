@@ -19,7 +19,7 @@ const Login = () => {
             const { data: res } = await axios.post(url, data);
             localStorage.setItem("token", res.data);
             localStorage.setItem("userEmail", res.userDet.email);
-            localStorage.setItem("userAadhar", res.userDet.aadhar);
+            localStorage.setItem("userId", String(res.userDet._id));
                         
             window.location = "/admin";
         } catch (error) {

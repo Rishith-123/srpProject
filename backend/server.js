@@ -1,21 +1,24 @@
 require("dotenv").config();
 const express = require("express");
+const path = require('path')
 const app = express();
 const cors = require("cors");
 const connection = require("./db");
 const userRoutes = require("./routes/users");
+const bodyParser = require("body-parser")
+app.use(bodyParser.json())
+app.use(express.static(__dirname));
+// app.use("./uploads",express.static(path.join(__dirname,"uploads")))
 // const hospitalRoutes = require("./routes/hospital");
 const authRoutes = require("./routes/auth");
-// const hospitalauthRoutes = require("./routes/hospitalauth");
-// const permissionauthRoutes = require("./routes/permission");
-// const fetchauthRoutes = require("./routes/fetchRecords");
-// const htohRoutes = require("./routes/htoh");
-// const fileRoutes = require("./routes/fileUpload")
+
+const itemsRouter = require("./routes/items")
+const profileRouter = require("./routes/profileUpdate")
 // database connection
 const {MongoClient} =  require('mongodb');
 const url = 'mongodb://127.0.0.1:27017/srp';
 
-const client = new MongoClient(url);
+// const client = new MongoClient(url);
 
 // async function  getData(){
 //     let result = await client.connect();
@@ -23,7 +26,18 @@ const client = new MongoClient(url);
 //     let db = result.db("eHealthWallet");
 //     // let collection = db.collection()
 // }
-connection();
+
+const port = process.env.PORT || 8080;
+const start = async() => {
+    try {
+        await connection();
+        app.listen(port, () => {
+            console.log(`Listening on port ${port}...`)
+        });
+    } catch (error) {
+        console.log("error")
+    }
+}
 // getData();
 
 // middlewares
@@ -33,6 +47,10 @@ app.use(cors());
 //routes
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/v1/items", itemsRouter);
+app.use("/api/profileUpdate", profileRouter);
+
+
 // app.use("/api/hospital", hospitalRoutes);
 // app.use("/api/hospitalauth", hospitalauthRoutes);
 // app.use("/api/usersPermission", permissionauthRoutes);
@@ -40,5 +58,8 @@ app.use("/api/auth", authRoutes);
 // app.use("/api/htoh", htohRoutes);
 // app.use("/api/upload", fileRoutes);
 
-const port = process.env.PORT || 8080;
-app.listen(port, console.log(`Listening on port ${port}...`));
+app.get("/",(req,res) => {
+    res.send("hello world")
+})
+
+start()

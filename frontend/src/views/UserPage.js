@@ -1,5 +1,8 @@
 import React from "react";
+import { useState } from "react";
 
+import axios from "axios";
+import { Link } from "react-router-dom";
 // reactstrap components
 import {
   Button,
@@ -16,7 +19,40 @@ import {
 // core components
 import PanelHeader from "components/PanelHeader/PanelHeader.js";
 
+import UploadForm from "components/UploadForm";
+
 function User() {
+  const [data, setData] = useState({ firstName: "", lastName: "", address: "", city: "", zipCode: "", aboutMe: "" });
+  const [error, setError] = useState("");
+
+  const handleChange = ({ currentTarget: input }) => {
+    setData({ ...data, [input.name]: input.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      console.log(data)
+      const id = localStorage.getItem("userId")
+      const url = "http://localhost:5000/api/profileUpdate/" + id;
+      console.log(url)
+      const { data: res } = await axios.post(url, data);
+      console.log(res)
+
+      // window.location = "/admin";
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+        console.log(error);
+      }
+    }
+  };
+
+
   return (
     <>
       <PanelHeader size="sm" />
@@ -28,7 +64,7 @@ function User() {
                 <h5 className="title">Edit Profile</h5>
               </CardHeader>
               <CardBody>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                   <Row>
                     <Col className="pr-1" md="5">
                       <FormGroup>
@@ -44,17 +80,22 @@ function User() {
                       <FormGroup>
                         <label>Username</label>
                         <Input
-                          placeholder="Username"
+                          disabled
+                          placeholder="Rishith Kumar"
                           type="text"
+                          name="userName"
                         />
                       </FormGroup>
                     </Col>
-                    <Col className="pl-1" md="4">
+                    <Col className="pl-1" md="5">
                       <FormGroup>
                         <label htmlFor="exampleInputEmail1">
-                          Email address
+                          Email
                         </label>
-                        <Input placeholder="Email" type="email" />
+                        <Input
+                          placeholder="rishithkumar@gmail.com"
+                          disabled
+                          type="email" />
                       </FormGroup>
                     </Col>
                   </Row>
@@ -63,9 +104,12 @@ function User() {
                       <FormGroup>
                         <label>First Name</label>
                         <Input
-                
+
                           placeholder="First Name"
                           type="text"
+                          name="firstName"
+                          onChange={handleChange}
+                          value={data.firstName}
                         />
                       </FormGroup>
                     </Col>
@@ -73,9 +117,12 @@ function User() {
                       <FormGroup>
                         <label>Last Name</label>
                         <Input
-                          
+
                           placeholder="Last Name"
                           type="text"
+                          name="lastName"
+                          onChange={handleChange}
+                          value={data.lastName}
                         />
                       </FormGroup>
                     </Col>
@@ -85,9 +132,12 @@ function User() {
                       <FormGroup>
                         <label>Address</label>
                         <Input
-                          
+
                           placeholder="Address"
                           type="text"
+                          name="address"
+                          onChange={handleChange}
+                          value={data.address}
                         />
                       </FormGroup>
                     </Col>
@@ -97,26 +147,26 @@ function User() {
                       <FormGroup>
                         <label>City</label>
                         <Input
-                          
+
                           placeholder="City"
                           type="text"
+                          name="city"
+                          onChange={handleChange}
+                          value={data.city}
                         />
                       </FormGroup>
                     </Col>
-                    <Col className="px-1" md="4">
-                      <FormGroup>
-                        <label>Country</label>
-                        <Input
-                          
-                          placeholder="Country"
-                          type="text"
-                        />
-                      </FormGroup>
-                    </Col>
+
                     <Col className="pl-1" md="4">
                       <FormGroup>
                         <label>Postal Code</label>
-                        <Input placeholder="ZIP Code" type="number" />
+                        <Input
+                          placeholder="ZIP Code"
+                          type="number"
+                          name="zipCode"
+                          onChange={handleChange}
+                          value={data.zipCode}
+                        />
                       </FormGroup>
                     </Col>
                   </Row>
@@ -126,14 +176,19 @@ function User() {
                         <label>About Me</label>
                         <Input
                           cols="80"
-                         
+
                           placeholder="Small Discription"
                           rows="4"
                           type="textarea"
+                          name="aboutMe"
+                          onChange={handleChange}
+                          value={data.aboutMe}
                         />
                       </FormGroup>
                     </Col>
                   </Row>
+                  <button type="submit" defaultValue="Login" className="loginBtn" >Submit</button>
+
                 </Form>
               </CardBody>
             </Card>
@@ -160,7 +215,7 @@ function User() {
               <hr />
 
 
-              
+
               <div className="button-container">
                 <Button
                   className="btn-neutral btn-icon btn-round"
@@ -194,6 +249,28 @@ function User() {
           </Col>
         </Row>
       </div>
+
+      <div className="content">
+        <Row>
+          <Col md="4">
+            <UploadForm displayName="Income Certificate" name="income"/>
+          </Col>
+
+          <Col md="4">
+            <UploadForm displayName="10th Marksheet" name="10thMarksheet"/>
+          </Col>
+
+          <Col md="4">
+            <UploadForm displayName="12th Marksheet" name="12thMarksheet"/>
+          </Col>
+
+          <Col md="4">
+            <UploadForm displayName="Aadhar Card" name="aadhar"/>
+          </Col>
+        </Row>
+
+      </div>
+
     </>
   );
 }
