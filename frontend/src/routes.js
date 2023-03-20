@@ -38,13 +38,6 @@ var dashRoutes = [
     icon: "users_single-02",
     component: Setting,
     layout: "/admin"
-  },
-  {
-    path: "/userProfile",
-    name: "My Profile",
-    icon: "users_single-02",
-    component: User,
-    layout: "/admin"
   }
 ];
 export default dashRoutes;

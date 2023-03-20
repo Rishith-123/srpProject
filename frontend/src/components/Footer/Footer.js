@@ -32,7 +32,7 @@ function Footer(props) {
                 href="https://www.creative-tim.com?ref=nudr-footer"
                 target="_blank"
               >
-                Creative Tim
+                IST
               </a>
             </li>
             <li>
@@ -53,7 +53,7 @@ function Footer(props) {
             </li>
           </ul>
         </nav>
-        <div className="copyright">
+        {/* <div className="copyright">
           &copy; {1900 + new Date().getYear()}, Designed by{" "}
           <a
             href="https://www.invisionapp.com"
@@ -71,7 +71,7 @@ function Footer(props) {
             Creative Tim
           </a>
           .
-        </div>
+        </div> */}
       </Container>
     </footer>
   );

@@ -20,6 +20,8 @@ const Login = () => {
             localStorage.setItem("token", res.data);
             localStorage.setItem("userEmail", res.userDet.email);
             localStorage.setItem("userId", String(res.userDet._id));
+            localStorage.setItem("rollno", String(res.userDet.rollno))
+            localStorage.setItem("userName", String(res.userDet.name))
                         
             window.location = "/admin";
         } catch (error) {

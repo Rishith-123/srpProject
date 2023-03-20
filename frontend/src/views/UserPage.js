@@ -71,7 +71,7 @@ function User() {
                         <label>Roll Number</label>
                         <Input
                           disabled
-                          placeholder="Roll No."
+                          placeholder={localStorage.getItem("rollno")}
                           type="text"
                         />
                       </FormGroup>
@@ -81,7 +81,7 @@ function User() {
                         <label>Username</label>
                         <Input
                           disabled
-                          placeholder="Rishith Kumar"
+                          placeholder={localStorage.getItem("userName")}
                           type="text"
                           name="userName"
                         />
@@ -93,7 +93,7 @@ function User() {
                           Email
                         </label>
                         <Input
-                          placeholder="rishithkumar@gmail.com"
+                          placeholder={localStorage.getItem("userEmail")}
                           disabled
                           type="email" />
                       </FormGroup>
@@ -206,7 +206,7 @@ function User() {
                       className="avatar border-gray"
                       src={require("assets/img/mike.jpg").default}
                     />
-                    <h5 className="title">Rishith</h5>
+                    <h5 className="title">{localStorage.getItem("userName")}</h5>
                   </a>
                   <p className="description">Enthusiastic Student</p>
                 </div>
