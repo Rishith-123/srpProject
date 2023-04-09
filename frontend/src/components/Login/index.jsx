@@ -21,7 +21,7 @@ const Login = () => {
             localStorage.setItem("userEmail", res.userDet.email);
             localStorage.setItem("userId", String(res.userDet._id));
             localStorage.setItem("rollno", String(res.userDet.rollno))
-            localStorage.setItem("userName", String(res.userDet.name))
+            localStorage.setItem("userName", String(res.userDet.Name))
                         
             window.location = "/admin";
         } catch (error) {
